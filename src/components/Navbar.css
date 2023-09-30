@@ -28,3 +28,34 @@ nav {
   color: white;
   transition: 0.3s ease-in-out;
 }
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 769px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 90px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+    background-color: #ffebcc;
+    padding-top: 20px;
+  }
+  .mobile {
+    display: block;
+  }
+  .navbar li {
+    margin-bottom: 20px;
+  }
+
+  .mobile i {
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
