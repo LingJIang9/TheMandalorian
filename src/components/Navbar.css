@@ -6,7 +6,7 @@
 .App {
   font-family: sans-serif;
 }
-.navbar {
+#navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,19 +21,19 @@ nav {
   padding: 20px 80px;
 }
 
-.navbar li {
+#navbar li {
   list-style-type: none;
   position: relative;
   padding: 0 40px;
 }
-.navbar li a {
+#navbar li a {
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: 600;
   color: #2f64e8;
 }
 
-.navbar li a:hover {
+3navbar li a:hover {
   color: white;
   transition: 0.2s ease-in-out;
 }
@@ -43,23 +43,27 @@ nav {
 }
 
 @media screen and (max-width: 769px) {
-  .navbar {
+  #navbar {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: flex-start;
     position: fixed;
     top: 75px;
-    right: 0px;
+    right: -280px;
     width: 280px;
     height: 250px;
     background-color: #ffebcc;
     padding-top: 50px;
   }
+  #navbar.active {
+    right: 0;
+    transition: 0.3s ease-in-out;
+  }
   .mobile {
     display: block;
   }
-  .navbar li {
+  #navbar li {
     margin-bottom: 20px;
   }
 

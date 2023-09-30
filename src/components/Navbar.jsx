@@ -14,7 +14,7 @@ function Navbar() {
         <img src="src/assets/logoipsum-293.svg" alt="Logo" />{" "}
         {/* Add an "alt" attribute */}
         <div>
-          <ul className={`navbar ${clicked ? "active" : ""}`}>
+          <ul id="navbar" className={`navbar ${clicked ? "active" : ""}`}>
             <li>
               <a href="index.html">Home</a>
             </li>
