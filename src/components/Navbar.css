@@ -1,3 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  font-family: sans-serif;
+}
 .navbar {
   display: flex;
   flex-direction: row;
@@ -9,7 +17,7 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: blanchedalmond;
+  background-color: rgb(255, 229, 190);
   padding: 20px 80px;
 }
 
@@ -22,11 +30,12 @@ nav {
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: 600;
+  color: #2f64e8;
 }
 
 .navbar li a:hover {
   color: white;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .mobile {
@@ -40,12 +49,12 @@ nav {
     align-items: start;
     justify-content: flex-start;
     position: fixed;
-    top: 90px;
+    top: 75px;
     right: 0px;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 250px;
     background-color: #ffebcc;
-    padding-top: 20px;
+    padding-top: 50px;
   }
   .mobile {
     display: block;
