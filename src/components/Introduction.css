@@ -2,6 +2,10 @@
   margin: 30px 40px;
 }
 
+.introduction h1 {
+  margin-bottom: 40px;
+}
+
 .introduction1 {
   display: flex;
   flex-direction: row;
@@ -15,7 +19,7 @@
   text-align: left;
 }
 
-.left-text h4 {
+.left-text h2 {
   padding-bottom: 20px;
 }
 
@@ -24,10 +28,32 @@
   flex-direction: row;
   position: relative;
   width: 60%;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 60px;
 }
 .right-img img {
   width: 45%;
   height: 300px;
   border-radius: 5%;
+  object-fit: cover;
+}
+
+.right-img img:nth-child(2) {
+  position: absolute;
+  top: -10%;
+  right: 0;
+}
+
+@media screen and (max-width: 850px) {
+  .introduction1 {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .left-text {
+    margin-top: 30px;
+    width: 90%;
+  }
+  .right-img {
+    width: 90%;
+  }
 }

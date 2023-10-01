@@ -5,7 +5,7 @@ import "../components/Introduction.css";
 function Introduction() {
   return (
     <div className="introduction">
-      <h2>This is Gliding....</h2>
+      <h1>This is Gliding....</h1>
       <p>
         Challenging, peaceful or highly competitive, gliding is a sport that
         offers a whole range of opportunities. You can drift silently along
@@ -14,7 +14,7 @@ function Introduction() {
       </p>
       <div className="introduction1">
         <div className="left-text">
-          <h4>left side subtitle</h4>
+          <h2>left side subtitle</h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
