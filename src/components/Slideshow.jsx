@@ -1,10 +1,10 @@
 import "react-slideshow-image/dist/styles.css";
-import { Fade, Zoom, Slide } from "react-slideshow-image";
+import { Fade } from "react-slideshow-image";
 
 const slideImages = [
-  { url: "https://picsum.photos/id/1/300/200", caption: "first-slide" },
-  { url: "https://picsum.photos/id/2/300/200", caption: "second-slide" },
-  { url: "https://picsum.photos/id/3/300/200", caption: "third-slide" },
+  { url: "https://picsum.photos/id/1/400/250", caption: "first-slide" },
+  { url: "https://picsum.photos/id/2/400/250", caption: "second-slide" },
+  { url: "https://picsum.photos/id/3/400/250", caption: "third-slide" },
 ];
 
 const divStyle = {
