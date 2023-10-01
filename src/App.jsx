@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import Slideshow from "./components/Slideshow.jsx";
 import Introduction from "./components/Introduction.jsx";
 import Course from "./components/Course.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Slideshow />
       <Introduction />
       <Course />
+      <Footer />
     </div>
   );
 }
