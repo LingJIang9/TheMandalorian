@@ -1,7 +1,9 @@
+import "./Introduction.css";
+import IntroductionData from "../components/IntroductionData.jsx";
 import gliding1 from "../assets/gliding1.jpeg";
 import gliding2 from "../assets/gliding2.jpeg";
-import "../components/Introduction.css";
-
+import gliding3 from "../assets/gliding3.jpeg";
+import gliding4 from "../assets/gliding4.jpeg";
 function Introduction() {
   return (
     <div className="introduction">
@@ -12,23 +14,30 @@ function Introduction() {
         enjoying the sky and the country below, sharing a thermal with a
         circling buzzard.
       </p>
-      <div className="introduction1">
-        <div className="left-text">
-          <h2>left side subtitle</h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
+      {/* component1 */}
+      <IntroductionData
+        title="Left Side Subtitle1"
+        text="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
-          </p>
-        </div>
-        <div className="right-img">
-          <img src={gliding1} alt="img"></img>
-          <img src={gliding2} alt="img"></img>
-        </div>
-      </div>
+            remaining essentially unchanged."
+        image1={gliding1}
+        image2={gliding2}
+      />
+      {/* component2 */}
+      <IntroductionData
+        title="Left Side Subtitle2"
+        text="Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged."
+        image1={gliding3}
+        image2={gliding4}
+      />
     </div>
   );
 }
