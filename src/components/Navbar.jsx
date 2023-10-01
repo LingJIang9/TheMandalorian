@@ -8,6 +8,10 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         <h1>DBC</h1>
+        <div className="hamburger-icon">
+          <i className="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-times"></i>
+        </div>
         <ul>
           {NavbarItem.map((item, index) => {
             return (
