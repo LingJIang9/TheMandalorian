@@ -1,7 +1,8 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Slideshow from "./components/Slideshow";
-import Introduction from "./components/Introduction";
+import Navbar from "./components/Navbar.jsx";
+import Slideshow from "./components/Slideshow.jsx";
+import Introduction from "./components/Introduction.jsx";
+import Course from "./components/Course.jsx";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <Slideshow />
       <Introduction />
+      <Course />
     </div>
   );
 }
