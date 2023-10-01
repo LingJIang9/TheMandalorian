@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar.jsx";
-import Slideshow from "./components/Slideshow.jsx";
+import Hero from "./components/Hero.jsx";
 import Introduction from "./components/Introduction.jsx";
 import Course from "./components/Course.jsx";
 import Footer from "./components/Footer.jsx";
@@ -10,8 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
-      <Slideshow />
+      <Hero />
       <Introduction />
       <Course />
       <Footer />

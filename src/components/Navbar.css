@@ -5,6 +5,8 @@
   padding: 0 20px;
   border-radius: 20px;
   box-shadow: 0 3px 5px 0 grey;
+  height: 100px;
+  position: relative;
 }
 
 .navbar h1 {
@@ -40,4 +42,30 @@
 
 .navbar a:hover {
   color: aliceblue;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 253, 253);
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    top: 105px;
+    padding: 20px;
+  }
+  .navbar li {
+    width: 100%;
+    margin-bottom: 1px;
+  }
+  .navbar li:hover {
+    cursor: pointer;
+    background-color: rgb(119, 191, 255);
+  }
+  .navbar a:hover {
+    color: rgb(255, 255, 255);
+
+    transition: 0.1s ease-in-out;
+  }
 }
