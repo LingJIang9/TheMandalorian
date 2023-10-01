@@ -1,5 +1,6 @@
 import "../components/Navbar.css";
 import { Component } from "react";
+import { NavbarItem } from "../components/NavbarData";
 // import { Link } from "react-router-dom";
 
 class Navbar extends Component {
@@ -8,12 +9,16 @@ class Navbar extends Component {
       <nav className="navbar">
         <h1>DBC</h1>
         <ul>
-          <li>
-            <a href="/">
-              <i className="fa-solid fa-house-chimney-window"></i>
-              Home
-            </a>
-          </li>
+          {NavbarItem.map((item, index) => {
+            return (
+              <li key={index}>
+                <a href={item.url}>
+                  <i className={item.icon}></i>
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     );
