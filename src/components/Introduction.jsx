@@ -16,6 +16,7 @@ function Introduction() {
       </p>
       {/* component1 */}
       <IntroductionData
+        className="introduction1"
         title="Left Side Subtitle1"
         text="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -28,6 +29,7 @@ function Introduction() {
       />
       {/* component2 */}
       <IntroductionData
+        className="introduction1-reverse"
         title="Left Side Subtitle2"
         text="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

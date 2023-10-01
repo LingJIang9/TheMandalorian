@@ -9,7 +9,7 @@ class IntroductionData extends Component {
 
   render() {
     return (
-      <div className="introduction1">
+      <div className={this.props.className}>
         <div className="left-text">
           <h2>{this.props.title}</h2>
           <p>{this.props.text}</p>
