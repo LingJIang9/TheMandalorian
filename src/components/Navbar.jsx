@@ -1,7 +1,7 @@
 import "../components/Navbar.css";
 import { Component } from "react";
 import { NavbarItem } from "../components/NavbarData";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -23,10 +23,10 @@ class Navbar extends Component {
           {NavbarItem.map((item, index) => {
             return (
               <li key={index}>
-                <a href={item.url}>
+                <Link to={item.url}>
                   <i className={item.icon}></i>
                   {item.title}
-                </a>
+                </Link>
               </li>
             );
           })}
