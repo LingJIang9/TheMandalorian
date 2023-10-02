@@ -1,18 +1,17 @@
 import "./Introduction.css";
 import IntroductionData from "../components/IntroductionData.jsx";
-import gliding1 from "../assets/gliding1.jpeg";
-import gliding2 from "../assets/gliding2.jpeg";
-import gliding3 from "../assets/gliding3.jpeg";
-import gliding4 from "../assets/gliding4.jpeg";
+import book4 from "../assets/book4.png";
+import book5 from "../assets/book5.png";
+import book6 from "../assets/book6.png";
+import book7 from "../assets/book7.png";
 function Introduction() {
   return (
     <div className="introduction">
-      <h1>This is Gliding....</h1>
+      <h1>Dublin Book Club....</h1>
       <p>
-        Challenging, peaceful or highly competitive, gliding is a sport that
-        offers a whole range of opportunities. You can drift silently along
-        enjoying the sky and the country below, sharing a thermal with a
-        circling buzzard.
+        Pellentesque condimentum elit arcu, non hendrerit ex porttitor in. Nunc
+        sollicitudin velit leo, quis lobortis velit venenatis et. Integer
+        elementum congue erat eget posuere.
       </p>
       {/* component1 */}
       <IntroductionData
@@ -24,8 +23,8 @@ function Introduction() {
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged."
-        image1={gliding1}
-        image2={gliding2}
+        image1={book4}
+        image2={book7}
       />
       {/* component2 */}
       <IntroductionData
@@ -37,8 +36,8 @@ function Introduction() {
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged."
-        image1={gliding3}
-        image2={gliding4}
+        image1={book6}
+        image2={book5}
       />
     </div>
   );
