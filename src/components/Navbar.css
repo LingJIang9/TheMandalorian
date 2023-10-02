@@ -7,6 +7,8 @@
   box-shadow: 0 3px 5px 0 grey;
   height: 100px;
   position: relative;
+  margin: 10px;
+  z-index: 999; /* to make it always on the top layer */
 }
 
 .navbar h1 {
@@ -20,6 +22,7 @@
   align-items: center;
   list-style: none;
 }
+
 .navbar li {
   text-decoration: none;
   padding: 10px 15px;
@@ -44,17 +47,33 @@
   color: aliceblue;
 }
 
+.hamburger-icon i {
+  display: none;
+}
+
 @media screen and (max-width: 850px) {
   .navbar ul {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 253, 253);
+    background-color: rgb(163, 163, 163);
     position: absolute;
     width: 100%;
-    right: 0px;
+    right: -100%;
     top: 105px;
     padding: 20px;
   }
+
+  .navbar ul.active {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(163, 163, 163);
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 105px;
+    padding: 20px;
+  }
+
   .navbar li {
     width: 100%;
     margin-bottom: 1px;
@@ -67,5 +86,8 @@
     color: rgb(255, 255, 255);
 
     transition: 0.1s ease-in-out;
+  }
+  .hamburger-icon i {
+    display: block;
   }
 }
