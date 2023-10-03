@@ -1,8 +1,17 @@
-import React from "react";
 import "../components/Hero.css";
 
-function Hero() {
-  return <div>Hero</div>;
+function Hero(props) {
+  return (
+    <>
+      <div className={props.cName}>
+        <img src={props.url} alt="hero-ig"></img>
+        <div className="hero-text">
+          <h1>{props.title}</h1>
+          <p>{props.text}</p>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Hero;

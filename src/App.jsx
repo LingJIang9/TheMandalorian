@@ -1,6 +1,5 @@
 import "./App.css";
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
+
 import Introduction from "./components/Introduction.jsx";
 import Book from "./components/Book.jsx";
 import Footer from "./components/Footer.jsx";
@@ -13,14 +12,13 @@ import Events from "./routes/Events";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/mybooks" element={<MyBooks />}></Route>
         <Route path="/browse" element={<Browse />}></Route>
         <Route path="/events" element={<Events />}></Route>
       </Routes>
-      <Hero />
+
       <Introduction />
       <Book />
       <Footer />
