@@ -4,7 +4,7 @@ import book4 from "../assets/book4.png";
 import book5 from "../assets/book5.png";
 import book6 from "../assets/book6.png";
 import book7 from "../assets/book7.png";
-function Introduction() {
+const Introduction = () => {
   return (
     <div className="introduction">
       <h1>Dublin Book Club....</h1>
@@ -41,6 +41,6 @@ function Introduction() {
       />
     </div>
   );
-}
+};
 
 export default Introduction;

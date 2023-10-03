@@ -1,7 +1,4 @@
 import "./App.css";
-
-import Introduction from "./components/Introduction.jsx";
-import Book from "./components/Book.jsx";
 import Footer from "./components/Footer.jsx";
 import { Route, Routes } from "react-router-dom";
 import Home from "../src/routes/Home";
@@ -19,8 +16,6 @@ function App() {
         <Route path="/events" element={<Events />}></Route>
       </Routes>
 
-      <Introduction />
-      <Book />
       <Footer />
     </div>
   );

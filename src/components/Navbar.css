@@ -38,7 +38,7 @@
 
 .navbar li:hover {
   cursor: pointer;
-  background-color: rgb(62, 255, 191);
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
   transition: 0.3s ease-in-out;
 }
