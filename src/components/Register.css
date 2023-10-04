@@ -1,0 +1,12 @@
+.register {
+  display: flex;
+  flex-direction: column;
+
+  border: solid 1px grey;
+  padding: 20px;
+  margin: 30px auto;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  line-height: 40px;
+}

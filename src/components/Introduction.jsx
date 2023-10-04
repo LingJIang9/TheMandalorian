@@ -17,12 +17,7 @@ const Introduction = () => {
       <IntroductionData
         className="introduction1"
         title="Left Side Subtitle1"
-        text="Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged."
+        text="Morbi aliquet ultrices magna sit amet efficitur. Mauris lobortis lobortis interdum. Aenean fringilla vel velit quis condimentum. Etiam dignissim a odio in varius. Curabitur blandit elit est, a aliquam sapien efficitur vel. Vestibulum eu nisl bibendum, ullamcorper sapien vitae, egestas ipsum. Sed vitae auctor sapien. Nam vestibulum lectus eget massa laoreet, sit amet congue libero viverra. Nullam ut massa ac nibh ullamcorper porttitor. "
         image1={book4}
         image2={book7}
       />
@@ -30,12 +25,7 @@ const Introduction = () => {
       <IntroductionData
         className="introduction1-reverse"
         title="Left Side Subtitle2"
-        text="Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged."
+        text="Morbi aliquet ultrices magna sit amet efficitur. Mauris lobortis lobortis interdum. Aenean fringilla vel velit quis condimentum. Etiam dignissim a odio in varius. Curabitur blandit elit est, a aliquam sapien efficitur vel. Vestibulum eu nisl bibendum, ullamcorper sapien vitae, egestas ipsum. Sed vitae auctor sapien. Nam vestibulum lectus eget massa laoreet, sit amet congue libero viverra. Nullam ut massa ac nibh ullamcorper porttitor. "
         image1={book6}
         image2={book5}
       />

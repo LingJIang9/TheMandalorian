@@ -5,6 +5,7 @@ import Home from "../src/routes/Home";
 import MyBooks from "./routes/MyBooks";
 import Browse from "./routes/Browse";
 import Events from "./routes/Events";
+import Register from "./routes/Register";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/mybooks" element={<MyBooks />}></Route>
         <Route path="/browse" element={<Browse />}></Route>
         <Route path="/events" element={<Events />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
 
       <Footer />
