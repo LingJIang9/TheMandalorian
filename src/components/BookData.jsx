@@ -6,6 +6,9 @@ import book3 from "../assets/book3.jpeg";
 import book9 from "../assets/book9.jpeg";
 import book10 from "../assets/book10.jpeg";
 import book11 from "../assets/book11.jpeg";
+import book13 from "../assets/book13.jpeg";
+import book14 from "../assets/book14.jpeg";
+import book15 from "../assets/book15.jpg";
 
 function BookData() {
   return (
@@ -44,6 +47,24 @@ function BookData() {
         />
         <Book
           image={book11}
+          heading="Comic"
+          text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
+        />
+
+        <Book
+          image={book13}
+          heading="Comic"
+          text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
+        />
+
+        <Book
+          image={book14}
+          heading="Comic"
+          text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
+        />
+
+        <Book
+          image={book15}
           heading="Comic"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />

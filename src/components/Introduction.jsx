@@ -7,11 +7,18 @@ import book7 from "../assets/book7.png";
 const Introduction = () => {
   return (
     <div className="introduction">
-      <h1>Dublin Book Club....</h1>
+      <h1>Fusce Ante Lorem</h1>
       <p>
-        Pellentesque condimentum elit arcu, non hendrerit ex porttitor in. Nunc
-        sollicitudin velit leo, quis lobortis velit venenatis et. Integer
-        elementum congue erat eget posuere.
+        Etiam non tincidunt elit. In dui neque, interdum in sapien vel,
+        convallis congue enim. Morbi dignissim convallis vestibulum. Fusce
+        vehicula nulla quis turpis rhoncus, eget dictum sapien laoreet. Class
+        aptent taciti sociosqu ad litora torquent per conubia nostra, per
+        inceptos himenaeos. Pellentesque dignissim ac tellus id commodo. Morbi
+        eu turpis vel turpis porta dictum. Donec quis interdum orci, ac
+        malesuada sapien. Aliquam quis feugiat elit. In hac habitasse platea
+        dictumst. Phasellus ligula augue, hendrerit non ligula eget, ullamcorper
+        efficitur dolor. Fusce ante lorem, imperdiet vel arcu nec, cursus congue
+        purus.
       </p>
       {/* component1 */}
       <IntroductionData

@@ -10,8 +10,10 @@ function Home() {
       <Hero
         cName="hero"
         url="src/assets/hero4.jpg"
-        title="Trending this Week"
-        text="Choose your favourite book"
+        title="Bookhub"
+        text="Track films you’ve watched.
+Save those you want to see.
+Tell your friends what’s good.  "
       />
       <Introduction />
       <Book />
