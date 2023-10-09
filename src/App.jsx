@@ -7,6 +7,10 @@ import Browse from "./routes/Browse";
 import Events from "./routes/Events";
 import Register from "./routes/Register";
 import Login from "./routes/Login";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
