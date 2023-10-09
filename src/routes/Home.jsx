@@ -11,8 +11,8 @@ function Home() {
         cName="hero"
         url="src/assets/hero4.jpg"
         title="Bookhub"
-        text="Track films you’ve watched.
-Save those you want to see.
+        text="Track books you’ve read.
+Save those you want to read.
 Tell your friends what’s good.  "
       />
       <Introduction />
