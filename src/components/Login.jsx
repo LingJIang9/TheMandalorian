@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import Navbar from "./Navbar";
+import "./Login.css";
 
 export default function Login() {
   const [data, setData] = useState({
@@ -13,8 +15,9 @@ export default function Login() {
 
   return (
     <div>
-      <form onSubmit={loginUser}>
-        <label>email</label>
+      <Navbar />
+      <form className="login" onSubmit={loginUser}>
+        <label>Email</label>
         <input
           type="email"
           placeholder="enter your email"

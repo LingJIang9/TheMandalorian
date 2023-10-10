@@ -1,22 +1,22 @@
 import "./App.css";
 import Footer from "./components/Footer.jsx";
 import { Route, Routes } from "react-router-dom";
-import Home from "../src/routes/Home";
-import MyBooks from "./routes/MyBooks";
-import Browse from "./routes/Browse";
-import Events from "./routes/Events";
-import Register from "./routes/Register";
-import Login from "./routes/Login";
+import Home from "./components/Home";
+import MyBooks from "./components/MyBooks";
+import Browse from "./components/Browse";
+import Events from "./components/Events";
+import Register from "./components/Register";
+import Login from "./components/Login";
 import axios from "axios";
-import { Toaster } from "react-hot-toast";
+// import { Toaster } from "react-hot-toast";
 
-axios.defaults.baseURL = "http://localhost:8000";
-axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.withCredentials = false;
 
 function App() {
   return (
     <div className="App">
-      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
+      {/* <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} /> */}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/mybooks" element={<MyBooks />}></Route>

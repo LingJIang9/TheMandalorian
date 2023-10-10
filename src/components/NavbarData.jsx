@@ -24,7 +24,7 @@ export const NavbarItem = [
     icon: "fa-solid fa-envelope",
   },
   {
-    title: "Register",
+    title: "Register/Login",
     url: "/Register",
     cName: "nav-links",
     icon: "fa-solid fa-user",
