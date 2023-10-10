@@ -27,6 +27,11 @@ app.post("/register", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+app.post("/login", (req, res) => {
+  UserModel.create(req.body)
+    .then((users) => res.json(users))
+    .catch((err) => res.json(err));
+});
 // app.use("/", require("./routes/authRoutes"));
 
 const port = 3000;
