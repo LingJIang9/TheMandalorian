@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Login(e) {
+export default function Login() {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const loginUser = () => {
+  const loginUser = (e) => {
     e.preventDefault();
     axios.get("/");
   };
@@ -14,7 +14,7 @@ export default function Login(e) {
   return (
     <div>
       <form onSubmit={loginUser}>
-        <label>EMail</label>
+        <label>email</label>
         <input
           type="email"
           placeholder="enter your email"

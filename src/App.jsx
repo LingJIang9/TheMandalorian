@@ -8,6 +8,7 @@ import Events from "./routes/Events";
 import Register from "./routes/Register";
 import Login from "./routes/Login";
 import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -15,6 +16,7 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <div className="App">
+      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/mybooks" element={<MyBooks />}></Route>
