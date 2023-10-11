@@ -47,7 +47,7 @@ function Register() {
         <button type="submit">Submit</button>
         <p>
           Already a member?
-          <Link to="/login">here</Link>
+          <Link to="/login">Login here</Link>
         </p>
       </form>
     </div>
