@@ -6,13 +6,14 @@ const { mongoose } = require("mongoose");
 const cors = require("cors");
 const UserModel = require("./models/user");
 const port = 3000;
-
+const movieRoutes = require("./routes/movies");
 // const dotenv = require("dotenv").config();
 
 //middleware
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use("/api", movieRoutes);
 
 // mongo database connection
 mongoose
