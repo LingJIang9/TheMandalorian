@@ -1,12 +1,14 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer.jsx";
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import MyBooks from "./components/MyBooks";
-import Browse from "./components/Browse";
+import Browse from "./pages/Browse";
 import Events from "./components/Events";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Navbar from "./components/Navbar";
 import axios from "axios";
 // import { Toaster } from "react-hot-toast";
 
@@ -16,6 +18,7 @@ axios.defaults.withCredentials = false;
 function App() {
   return (
     <div className="App">
+      <Navbar />
       {/* <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} /> */}
       <Routes>
         <Route path="/" element={<Home />}></Route>

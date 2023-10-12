@@ -13,7 +13,7 @@ import book15 from "../assets/book15.jpg";
 function BookData() {
   return (
     <div className="book">
-      <h2>BOOK GENRES</h2>
+      <h2>BOOK LIST</h2>
       <p>
         when an unknown printer took a galley of type and scrambled it to make a
         type specimen book. It has survived not only five centuries, but also

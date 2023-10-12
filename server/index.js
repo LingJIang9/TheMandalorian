@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-
+//to use Express we will need to require express first
 const express = require("express");
 const { mongoose } = require("mongoose");
 const cors = require("cors");
 const UserModel = require("./models/user");
+const port = 3000;
 
 // const dotenv = require("dotenv").config();
 
@@ -28,11 +29,22 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  UserModel.create(req.body)
-    .then((users) => res.json(users))
+  const { email, password } = req.body;
+
+  UserModel.findOne({ email: email })
+    .then((user) => {
+      if (user) {
+        if (user.password === password) {
+          res.json("success");
+        } else {
+          res.json("password incorrect");
+        }
+      } else {
+        res.json("user not exists");
+      }
+    })
     .catch((err) => res.json(err));
 });
 // app.use("/", require("./routes/authRoutes"));
 
-const port = 3000;
 app.listen(port, () => console.log(`server is running on ${port}`));

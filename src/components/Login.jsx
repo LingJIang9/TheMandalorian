@@ -1,24 +1,32 @@
 import { useState } from "react";
 import axios from "axios";
-import Navbar from "./Navbar";
+
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/login", { email, password })
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        if (result.data === "success") {
+          navigate("/");
+        }
+      })
+
       .catch((err) => console.log(err));
   };
 
   return (
     <div>
-      <Navbar />
       <form className="login" onSubmit={handleSubmit}>
+        <h1>Login</h1>
         <label>Email</label>
         <input
           type="email"

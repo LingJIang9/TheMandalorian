@@ -1,12 +1,10 @@
-import Navbar from "./Navbar.jsx";
-import Hero from "./Hero.jsx";
-import Introduction from "./Introduction.jsx";
-import Book from "./BookData.jsx";
+import Hero from "../components/Hero.jsx";
+import Introduction from "../components/Introduction.jsx";
+import Book from "../components/BookData.jsx";
 
 function Home() {
   return (
     <>
-      <Navbar />
       <Hero
         cName="hero"
         url="src/assets/hero4.jpg"
