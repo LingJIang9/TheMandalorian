@@ -3,9 +3,17 @@ import axios from "axios";
 import { API_URL } from "../API";
 import "../App";
 import "./BookList.css";
+import { useAppContext } from "./context/appContext";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
+  const { haveread, addToHaveread, removeFromHaveread } = useAppContext();
+  const { toread, addToToread, removeFromToread } = useAppContext();
+  const { reading, addToReading, removeFromReading } = useAppContext();
+
+  console.log("have read list is", haveread);
+  console.log("to read list is", toread);
+  console.log("reading list is", reading);
 
   useEffect(() => {
     axios
@@ -27,9 +35,27 @@ const BookList = () => {
             <p>{book.title}</p>
           </div>
           <div className="button">
-            <button>Want to read</button>
-            <button>Reading</button>
-            <button>Have Read</button>
+            <button
+              onClick={() => {
+                addToToread(book);
+              }}
+            >
+              To read
+            </button>
+            <button
+              onClick={() => {
+                addToReading(book);
+              }}
+            >
+              Reading
+            </button>
+            <button
+              onClick={() => {
+                addToHaveread(book);
+              }}
+            >
+              Have Read
+            </button>
           </div>
         </div>
       ))}
