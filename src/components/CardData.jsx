@@ -65,14 +65,14 @@ const CardData = [
   {
     id: "10",
     title: "Title11",
-    category: "romance",
+    category: "history",
     img: "https://media.newyorker.com/photos/651315a5beba73981475b620/4:3/w_560,c_limit/231009_r43131web-tout.jpg",
     text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
   },
   {
     id: "11",
     title: "Title12",
-    category: "romance",
+    category: "self-help",
     img: "https://media.newyorker.com/photos/651315a5beba73981475b620/4:3/w_560,c_limit/231009_r43131web-tout.jpg",
     text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
   },

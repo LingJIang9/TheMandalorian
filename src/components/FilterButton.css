@@ -1,4 +1,13 @@
-.button_container {
+.button-container {
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-around;
+}
+
+.button-container button {
+  padding: 5px 20px;
+  border-radius: 10%;
+  background-color: black;
+  color: white;
+  margin: 20px;
 }
