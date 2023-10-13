@@ -22,50 +22,89 @@ function BookData() {
       <div className="book-card">
         <Book
           image={book1}
-          heading="Fiction"
+          heading="Witness"
+          author="J A"
+          genre="romance"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
         <Book
           image={book2}
-          heading="Bibliography"
+          heading="Emergency"
+          author="J C"
+          genre="thriller"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
         <Book
           image={book3}
-          heading="Sci-Fi"
+          heading="Beyond the door of no return"
+          author="J bill"
+          genre="sci-fi"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
         <Book
           image={book9}
-          heading="Romance"
+          heading="A day in the life"
+          author="Alice"
+          genre="history"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
         <Book
           image={book10}
-          heading="Self-help"
+          heading="The rigor of Angels"
+          author="Alice"
+          genre="art"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
         <Book
           image={book11}
-          heading="Comic"
+          heading="Console Poems"
+          author="Alice"
+          genre="art"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
 
         <Book
           image={book13}
-          heading="Comic"
+          heading="First gen"
+          author="Alice"
+          genre="romance"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
 
         <Book
           image={book14}
-          heading="Comic"
+          heading="Thunder clap"
+          author="Alice"
+          genre="romance"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
 
         <Book
           image={book15}
-          heading="Comic"
+          heading="The heaven and earth grocery store"
+          author="Alice"
+          genre="sci-fi"
+          text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
+        />
+        <Book
+          image={book1}
+          heading="The heaven and earth grocery store"
+          author="Alice"
+          genre="sci-fi"
+          text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
+        />
+        <Book
+          image={book2}
+          heading="The heaven and earth grocery store"
+          author="Alice"
+          genre="romance"
+          text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
+        />
+        <Book
+          image={book3}
+          heading="The heaven and earth grocery store"
+          author="Alice"
+          genre="thriller"
           text="Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam. "
         />
       </div>

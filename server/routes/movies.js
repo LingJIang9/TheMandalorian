@@ -62,6 +62,7 @@ router.get("/movies", async (req, res) => {
   }
 });
 
+//data insert
 const insertMovies = async () => {
   try {
     const docs = await Movie.insertMany(movies);

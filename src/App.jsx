@@ -3,13 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer.jsx";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import MyBooks from "./components/MyBooks";
+import MyBooks from "./pages/MyBooks";
 import Browse from "./pages/Browse";
 import Events from "./components/Events";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import axios from "axios";
+
 // import { Toaster } from "react-hot-toast";
 
 axios.defaults.baseURL = "http://localhost:3000";

@@ -4,6 +4,7 @@ import { API_URL } from "../API";
 import "../App";
 import "./BookList.css";
 import { useAppContext } from "./context/appContext";
+import BookData from "./BookData";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -59,6 +60,7 @@ const BookList = () => {
           </div>
         </div>
       ))}
+      <BookData />
     </div>
   );
 };

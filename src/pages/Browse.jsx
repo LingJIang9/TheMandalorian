@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-import BookList from "../components/BookList.jsx";
+
 import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 
@@ -23,8 +23,6 @@ function Browse() {
         text="Manage books you are reading, want to read and have read"
       />
       <SearchBar handleInput={handleInput} />
-
-      <BookList />
     </div>
   );
 }

@@ -1,0 +1,81 @@
+const CardData = [
+  {
+    id: "1",
+    title: "Title1",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "2",
+    title: "Title3",
+    category: "thriller",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "3",
+    title: "Title4",
+    category: "thriller",
+    img: "https://media.newyorker.com/photos/6509c10d98443ed0f8191445/4:3/w_560,c_limit/231002_r43102web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "4",
+    title: "Title5",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "5",
+    title: "Title6",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "6",
+    title: "Title7",
+    category: "sci-fi",
+    img: "https://media.newyorker.com/photos/6509c10d98443ed0f8191445/4:3/w_560,c_limit/231002_r43102web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "7",
+    title: "Title8",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "8",
+    title: "Title9",
+    category: "sci-fi",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "9",
+    title: "Title10",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651c4f8fed2a560b9dd019a0/4:3/w_560,c_limit/231016_r43172web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "10",
+    title: "Title11",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651315a5beba73981475b620/4:3/w_560,c_limit/231009_r43131web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+  {
+    id: "11",
+    title: "Title12",
+    category: "romance",
+    img: "https://media.newyorker.com/photos/651315a5beba73981475b620/4:3/w_560,c_limit/231009_r43131web-tout.jpg",
+    text: "Donec consequat vulputate lectus nec facilisis. Nam id varius eros, eget placerat odio. Pellentesque felis enim, laoreet nec tempor ac, cursus quis quam.",
+  },
+];
+
+export default CardData;
