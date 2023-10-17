@@ -10,10 +10,10 @@ function SearchBar({ handleSearch, searchResult }) {
   };
 
   return (
-    <div>
+    <div className="search-bar-container">
       <input
         type="text"
-        placeholder="search books"
+        placeholder="search movies"
         name="search"
         value={searchText}
         onChange={handleInputChange}

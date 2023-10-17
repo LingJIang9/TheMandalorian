@@ -36,6 +36,9 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+.book p {
+  margin: 5%;
+}
 
 @media screen and (max-width: 850px) {
   .book-card {

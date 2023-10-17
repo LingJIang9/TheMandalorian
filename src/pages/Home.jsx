@@ -7,11 +7,11 @@ function Home() {
     <>
       <Hero
         cName="hero"
-        url="src/assets/hero4.jpg"
-        title="Bookhub"
-        text="Track books you’ve read.
-Save those you want to read.
-Tell your friends what’s good.  "
+        url="src/assets/hero1.png"
+        //         title="Bookhub"
+        //         text="Track books you’ve read.
+        // Save those you want to read.
+        // Tell your friends what’s good.  "
       />
       <Introduction />
       <Book />

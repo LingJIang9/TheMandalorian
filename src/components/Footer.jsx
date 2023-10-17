@@ -5,8 +5,8 @@ function Footer() {
     <div className="footer">
       <div className="top-row">
         <div className="col-left">
-          <h1>DBC</h1>
-          <p>Dublin Book Club</p>
+          <h1>Mubi</h1>
+          <p>Movie</p>
         </div>
         <div className="icon">
           <a href="/">

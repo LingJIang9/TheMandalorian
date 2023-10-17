@@ -11,7 +11,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-        <h1>Bookhub</h1>
+        <h1>Movie</h1>
         <div className="hamburger-icon" onClick={this.toggleMenu}>
           <i
             className={

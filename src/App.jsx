@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import MyBooks from "./pages/MyBooks";
 import Browse from "./pages/Browse";
-import Events from "./components/Events";
+import Events from "./pages/Events";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";

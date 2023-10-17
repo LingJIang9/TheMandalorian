@@ -1,5 +1,5 @@
 import Hero from "../components/Hero.jsx";
-import HeroMyBooks from "../assets/hero1.jpg";
+import HeroMyBooks from "../assets/hero2.png";
 import Card from "../components/Card.jsx";
 import { useState } from "react";
 
@@ -19,8 +19,8 @@ function MyBooks() {
       <Hero
         cName="hero"
         url={HeroMyBooks}
-        title="My Book Collection"
-        text="Search, Track, Rate and Review"
+        // title="My Book Collection"
+        // text="Search, Track, Rate and Review"
       />
       <FilterButton
         bookItems={bookItems}

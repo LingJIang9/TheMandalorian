@@ -6,7 +6,7 @@ export const NavbarItem = [
     icon: "fa-solid fa-house-chimney-window",
   },
   {
-    title: "My Books",
+    title: "My movies",
     url: "/mybooks",
     cName: "nav-links",
     icon: "fa-solid fa-house-chimney-window",
