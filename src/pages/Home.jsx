@@ -5,14 +5,7 @@ import Book from "../components/BookData.jsx";
 function Home() {
   return (
     <>
-      <Hero
-        cName="hero"
-        url="src/assets/hero1.png"
-        //         title="Bookhub"
-        //         text="Track books you’ve read.
-        // Save those you want to read.
-        // Tell your friends what’s good.  "
-      />
+      <Hero cName="hero" url="src/assets/hero1.png" />
       <Introduction />
       <Book />
     </>

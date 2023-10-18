@@ -16,7 +16,7 @@ import book18 from "../assets/movie12.png";
 function BookData() {
   return (
     <div className="book">
-      <h2>Movie of This Year</h2>
+      <h2>Movie of This ear</h2>
       <p>
         when an unknown printer took a galley of type and scrambled it to make a
         type specimen book. It has survived not only five centuries, but also
