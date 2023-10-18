@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import MovieBox from "../components/MovieBox";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, FormControl, Button } from "react-bootstrap";
+import "../components/SearchBar.css";
 
 const API_URL =
   "https://api.themoviedb.org/3/movie/popular?api_key=3d11b45598d7855ede089fb154e694e8";
 const API_SEARCH =
   "https://api.themoviedb.org/3/search/movie?api_key=3d11b45598d7855ede089fb154e694e8&query";
 
-function Events() {
+function Search() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -39,7 +40,7 @@ function Events() {
   };
   return (
     <>
-      <Form className="d-flex" onSubmit={searchMovie}>
+      <Form className="search-bar-container" onSubmit={searchMovie}>
         <FormControl
           type="search"
           placeholder="search movie"
@@ -49,17 +50,25 @@ function Events() {
           value={query}
           onChange={changeHandler}
         ></FormControl>
-        <Button type="submit">Search </Button>
+        <Button type="submit" className="search-button">
+          Search{" "}
+        </Button>
       </Form>
-      <div className="container">
-        <div className="grid">
-          {movies.map((movieReq) => (
-            <MovieBox key={movieReq.id} {...movieReq} />
-          ))}
-        </div>
+      <div>
+        {movies.length > 0 ? (
+          <div className="container">
+            <div className="grid">
+              {movies.map((movieReq) => (
+                <MovieBox key={movieReq.id} {...movieReq} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <h2>Sorry!no movie found</h2>
+        )}
       </div>
     </>
   );
 }
 
-export default Events;
+export default Search;

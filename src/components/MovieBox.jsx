@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { Modal } from "react-bootstrap";
-// import { show } from "react-bootstrap";
+import "../components/MovieBox";
 
 const MovieBox = ({
   title,
@@ -17,7 +17,7 @@ const MovieBox = ({
 
   const handleClose = () => setShow(false);
   return (
-    <div className="card text-center mb-3">
+    <div className="card text-center mb-3 ">
       <div className="card-body">
         <img className="card-img-top" src={API_IMG + poster_path}></img>
         <div className="card-body">

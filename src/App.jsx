@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import MyBooks from "./pages/MyBooks";
 import Browse from "./pages/Browse";
-import Events from "./pages/Events";
+import Search from "./pages/Search";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/mybooks" element={<MyBooks />}></Route>
         <Route path="/browse" element={<Browse />}></Route>
-        <Route path="/events" element={<Events />}></Route>
+        <Route path="/search" element={<Search />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>

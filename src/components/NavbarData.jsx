@@ -18,8 +18,8 @@ export const NavbarItem = [
     icon: "fa-solid fa-house-chimney-window",
   },
   {
-    title: "Events",
-    url: "/events",
+    title: "Search",
+    url: "/search",
     cName: "nav-links",
     icon: "fa-solid fa-envelope",
   },

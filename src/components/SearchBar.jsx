@@ -18,7 +18,9 @@ function SearchBar({ handleSearch, searchResult }) {
         value={searchText}
         onChange={handleInputChange}
       />
-      <button onClick={searchResult}>search</button>
+      <button className="search-button" onClick={searchResult}>
+        search
+      </button>
     </div>
   );
 }
