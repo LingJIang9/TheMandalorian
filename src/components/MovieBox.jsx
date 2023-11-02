@@ -16,6 +16,7 @@ const MovieBox = ({
   const handleShow = () => setShow(true);
 
   const handleClose = () => setShow(false);
+
   return (
     <div className="card text-center mb-3 ">
       <div className="card-body">
@@ -28,6 +29,14 @@ const MovieBox = ({
             onClick={handleShow}
           >
             View movies
+          </button>
+          <button
+            type="button"
+            className="btn btn-dark"
+            style={{ margin: "2px auto" }}
+            // onClick={handleAddtoList}
+          >
+            Add to Watchlist
           </button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

@@ -3,6 +3,7 @@ import MovieBox from "../components/MovieBox";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, FormControl, Button } from "react-bootstrap";
 import "../components/SearchBar.css";
+import "../components/Search.css";
 
 const API_URL =
   "https://api.themoviedb.org/3/movie/popular?api_key=3d11b45598d7855ede089fb154e694e8";
@@ -38,6 +39,7 @@ function Search() {
   const changeHandler = (e) => {
     setQuery(e.target.value);
   };
+
   return (
     <>
       <Form className="search-bar-container" onSubmit={searchMovie}>

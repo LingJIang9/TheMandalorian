@@ -17,6 +17,9 @@ export default function Login() {
         console.log(result);
         if (result.data === "success") {
           navigate("/");
+          alert("login success");
+        } else {
+          alert("wrong password");
         }
       })
 
