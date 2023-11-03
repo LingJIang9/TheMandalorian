@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { Modal } from "react-bootstrap";
 import "../components/MovieBox";
+import axios from "axios";
 
 const MovieBox = ({
   title,
@@ -10,12 +11,47 @@ const MovieBox = ({
   vote_average,
   release_date,
   overview,
+  id,
+  reviewText,
 }) => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
 
   const handleClose = () => setShow(false);
+
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const handleShowReviewModal = () => setShowReviewModal(true);
+
+  const [reviews, setReviews] = useState([]);
+  const [newReview, setNewReview] = useState("");
+
+  const handleReviewSubmit = () => {
+    axios
+      .post("/review", { reviewText: newReview, id })
+      .then((response) => {
+        console.log("Review submitted successfully", response.data);
+      })
+      .catch((error) => {
+        console.error("Error submitting review:", error);
+      });
+    setShowReviewModal(false);
+  };
+
+  const fetchReviewsById = (id) => {
+    axios
+      .get(`/review/${id}`)
+      .then((response) => {
+        setReviews(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching reviews by id:", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchReviewsById(id);
+  }, [id]);
 
   return (
     <div className="card text-center mb-3 ">
@@ -34,9 +70,9 @@ const MovieBox = ({
             type="button"
             className="btn btn-dark"
             style={{ margin: "2px auto" }}
-            // onClick={handleAddtoList}
+            onClick={handleShowReviewModal}
           >
-            Add to Watchlist
+            Write a review
           </button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -54,9 +90,45 @@ const MovieBox = ({
               <br></br>
               <h6>Overview</h6>
               <p>{overview}</p>
+              <h6>ID</h6>
+              <p>{id}</p>
+              <h6>Reviews</h6>
+              <ul>
+                {reviews.map((review) => (
+                  <li key={review.id}>{review.reviewText}</li>
+                ))}
+              </ul>
             </Modal.Body>
             <Modal.Footer>
               <button onClick={handleClose}>close</button>
+            </Modal.Footer>
+          </Modal>
+          <Modal
+            show={showReviewModal}
+            onHide={() => setShowReviewModal(false)}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Write a Review</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form>
+                <div className="form-group">
+                  <label htmlFor="review">Your Review</label>
+                  <textarea
+                    className="form-control"
+                    id="review"
+                    rows="5"
+                    placeholder="Write your review here"
+                    value={newReview}
+                    onChange={(e) => setNewReview(e.target.value)}
+                  ></textarea>
+                </div>
+              </form>
+            </Modal.Body>
+
+            <Modal.Footer>
+              <button onClick={() => setShowReviewModal(false)}>Close</button>
+              <button onClick={handleReviewSubmit}>Submit</button>
             </Modal.Footer>
           </Modal>
         </div>

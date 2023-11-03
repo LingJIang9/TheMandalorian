@@ -9,7 +9,7 @@ function Book(props) {
       {/* <h4>{props.heading}</h4>
       <p>{props.author}</p>
       <p>{props.genre}</p> */}
-      <p>{props.text}</p>
+      <p>{props.text}</p>a
     </div>
   );
 }

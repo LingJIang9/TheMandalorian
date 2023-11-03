@@ -11,8 +11,6 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 
-// import { Toaster } from "react-hot-toast";
-
 axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = false;
 
@@ -20,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} /> */}
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/mybooks" element={<MyBooks />}></Route>
