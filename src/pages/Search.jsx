@@ -6,13 +6,20 @@ import "../components/SearchBar.css";
 import "../components/Search.css";
 
 const API_URL =
-  "https://api.themoviedb.org/3/movie/popular?api_key=3d11b45598d7855ede089fb154e694e8";
+  "https://api.themoviedb.org/3/movie/popular?api_key=3d11b45598d7855ede089fb154e694e8&page=1";
 const API_SEARCH =
   "https://api.themoviedb.org/3/search/movie?api_key=3d11b45598d7855ede089fb154e694e8&query";
+
+const API_GENRES =
+  "https://api.themoviedb.org/3/genre/movie/list?api_key=3d11b45598d7855ede089fb154e694e8";
 
 function Search() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
+  //filter
+  const [genres, setGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
     fetch(API_URL)
@@ -39,6 +46,22 @@ function Search() {
   const changeHandler = (e) => {
     setQuery(e.target.value);
   };
+  //filter
+  useEffect(() => {
+    // Fetch genre data
+    fetch(API_GENRES)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setGenres(data.genres);
+      });
+  }, []);
+  useEffect(() => {
+    const filtered = movies.filter((movie) => {
+      return selectedGenre === null || movie.genre_ids.includes(selectedGenre);
+    });
+    setFilteredMovies(filtered);
+  }, [selectedGenre, movies]);
 
   return (
     <>
@@ -56,6 +79,21 @@ function Search() {
           Search{" "}
         </Button>
       </Form>
+      {/* filter */}
+      <div>
+        {genres.map((genre) => (
+          <button key={genre.id} onClick={() => setSelectedGenre(genre.id)}>
+            {genre.name}
+          </button>
+        ))}
+      </div>
+      <div className="container">
+        <div className="grid">
+          {filteredMovies.map((movie) => (
+            <MovieBox key={movie.id} {...movie} />
+          ))}
+        </div>
+      </div>
       <div>
         {movies.length > 0 ? (
           <div className="container">

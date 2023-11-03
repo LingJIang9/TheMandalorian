@@ -77,7 +77,7 @@ const MovieBox = ({
         <div className="card-body">
           <button
             type="button"
-            className="btn btn-dark"
+            className="btn btn-dark btn-sm"
             style={{ margin: "0 auto" }}
             onClick={handleShow}
           >
@@ -85,7 +85,7 @@ const MovieBox = ({
           </button>
           <button
             type="button"
-            className="btn btn-dark"
+            className="btn btn-dark btn-sm"
             style={{ margin: "2px auto" }}
             onClick={handleShowReviewModal}
           >
