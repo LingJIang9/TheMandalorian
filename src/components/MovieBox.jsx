@@ -53,6 +53,23 @@ const MovieBox = ({
     fetchReviewsById(id);
   }, [id]);
 
+  //delete feature
+
+  const handleDeleteReviewModal = (_id) => {
+    axios
+      .delete(`/review/${_id}`)
+      .then((response) => {
+        console.log("Review deleted successfully", response.data);
+        // After successful deletion, you should also update the reviews state
+        // to reflect the changes.
+        const updatedReviews = reviews.filter((review) => review._id !== _id);
+        setReviews(updatedReviews);
+      })
+      .catch((error) => {
+        console.error("Error deleting review:", error);
+      });
+  };
+
   return (
     <div className="card text-center mb-3 ">
       <div className="card-body">
@@ -74,6 +91,7 @@ const MovieBox = ({
           >
             Write a review
           </button>
+
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title></Modal.Title>
@@ -93,14 +111,24 @@ const MovieBox = ({
               <h6>ID</h6>
               <p>{id}</p>
               <h6>Reviews</h6>
-              <ul>
+              <ul className="list-group list-group-flush">
                 {reviews.map((review) => (
-                  <li key={review.id}>{review.reviewText}</li>
+                  <li key={review._id} className="list-group-item">
+                    {review.reviewText}
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteReviewModal(review._id)}
+                    >
+                      Delete
+                    </button>
+                  </li>
                 ))}
               </ul>
             </Modal.Body>
             <Modal.Footer>
-              <button onClick={handleClose}>close</button>
+              <button onClick={handleClose} className="btn btn-dark">
+                close
+              </button>
             </Modal.Footer>
           </Modal>
           <Modal

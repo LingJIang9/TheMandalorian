@@ -48,7 +48,7 @@ app.post("/login", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// post endpoint to handle reviews
+// post endpoint to update reviews
 app.post("/review", (req, res) => {
   const { reviewText, id } = req.body;
   ReviewModel.create({ reviewText, id })
@@ -69,6 +69,23 @@ app.get("/review/:id", async (req, res) => {
     console.error("Error fetching reviews by id:", error);
     res.status(500).json({ error: "Failed to fetch reviews by id" });
   }
+});
+
+//define a route to delete reviews by _id
+app.delete("/review/:_id", (req, res) => {
+  const reviewId = req.params._id;
+
+  ReviewModel.findByIdAndDelete(reviewId)
+    .then((review) => {
+      if (!review) {
+        return res.status(404).json({ message: "Review not found" });
+      }
+      res.json({ message: "Review deleted successfully" });
+    })
+    .catch((error) => {
+      console.error("Error deleting review:", error);
+      res.status(500).json({ message: "Error deleting review" });
+    });
 });
 
 app.listen(port, () => console.log(`server is running on ${port}`));
