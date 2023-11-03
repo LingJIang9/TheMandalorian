@@ -113,11 +113,14 @@ const MovieBox = ({
               <h6>Reviews</h6>
               <ul className="list-group list-group-flush">
                 {reviews.map((review) => (
-                  <li key={review._id} className="list-group-item">
+                  <li key={review._id} className="list-group-item ">
                     {review.reviewText}
+
                     <button
                       type="button"
                       onClick={() => handleDeleteReviewModal(review._id)}
+                      className="btn btn-secondary btn-sm"
+                      style={{ display: "flex" }}
                     >
                       Delete
                     </button>
