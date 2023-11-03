@@ -18,7 +18,7 @@ function Search() {
   const [query, setQuery] = useState("");
   //filter
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ function Search() {
           Search{" "}
         </Button>
       </Form>
-      {/* filter */}
+      {/* filter button */}
       <div>
         {genres.map((genre) => (
           <button key={genre.id} onClick={() => setSelectedGenre(genre.id)}>
@@ -87,13 +87,15 @@ function Search() {
           </button>
         ))}
       </div>
-      <div className="container">
+      {/* filtered movie list */}
+      {/* <div className="container">
         <div className="grid">
           {filteredMovies.map((movie) => (
             <MovieBox key={movie.id} {...movie} />
           ))}
         </div>
-      </div>
+      </div> */}
+      {/* 
       <div>
         {movies.length > 0 ? (
           <div className="container">
@@ -106,6 +108,16 @@ function Search() {
         ) : (
           <h2>Sorry!no movie found</h2>
         )}
+      </div> */}
+
+      <div className="container">
+        <div className="grid">
+          {selectedGenre
+            ? filteredMovies.map((movie) => (
+                <MovieBox key={movie.id} {...movie} />
+              ))
+            : movies.map((movie) => <MovieBox key={movie.id} {...movie} />)}
+        </div>
       </div>
     </>
   );
