@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer.jsx";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import MyBooks from "./pages/MyBooks";
+import MyWatchlist from "./pages/MyWatchlist";
 import Browse from "./pages/Browse";
 import Search from "./pages/Search";
 import Register from "./components/Register";
@@ -23,7 +23,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/mybooks" element={<MyBooks />}></Route>
+        <Route path="/mywatchlist" element={<MyWatchlist />}></Route>
         <Route path="/browse" element={<Browse />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/register" element={<Register />}></Route>

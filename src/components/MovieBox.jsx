@@ -26,6 +26,7 @@ const MovieBox = ({
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
 
+  //review
   const handleReviewSubmit = () => {
     axios
       .post("/review", { reviewText: newReview, id })
@@ -60,8 +61,7 @@ const MovieBox = ({
       .delete(`/review/${_id}`)
       .then((response) => {
         console.log("Review deleted successfully", response.data);
-        // After successful deletion, you should also update the reviews state
-        // to reflect the changes.
+
         const updatedReviews = reviews.filter((review) => review._id !== _id);
         setReviews(updatedReviews);
       })

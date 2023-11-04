@@ -19,7 +19,6 @@ export default function Login({ setUserName }) {
           const userName = result.data.name;
           alert(`login success, welcome, ${userName}`);
           setUserName(userName);
-          navigate("/mybooks");
         } else if (result.data === "user not exists") {
           alert("User not exist, please register");
         } else {

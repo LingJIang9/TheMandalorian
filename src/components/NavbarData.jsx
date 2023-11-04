@@ -6,8 +6,8 @@ export const NavbarItem = [
     icon: "fa-solid fa-house-chimney-window",
   },
   {
-    title: "My movies",
-    url: "/mybooks",
+    title: "My Watchlist",
+    url: "/mywatchlist",
     cName: "nav-links",
     icon: "fa-solid fa-house-chimney-window",
   },
