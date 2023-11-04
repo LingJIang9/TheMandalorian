@@ -79,36 +79,19 @@ function Search() {
           Search{" "}
         </Button>
       </Form>
-      {/* filter button */}
+      {/* genre filter buttons */}
       <div>
         {genres.map((genre) => (
-          <button key={genre.id} onClick={() => setSelectedGenre(genre.id)}>
+          <button
+            className="btn btn-sm btn-outline-secondary"
+            style={{ margin: "4px" }}
+            key={genre.id}
+            onClick={() => setSelectedGenre(genre.id)}
+          >
             {genre.name}
           </button>
         ))}
       </div>
-      {/* filtered movie list */}
-      {/* <div className="container">
-        <div className="grid">
-          {filteredMovies.map((movie) => (
-            <MovieBox key={movie.id} {...movie} />
-          ))}
-        </div>
-      </div> */}
-      {/* 
-      <div>
-        {movies.length > 0 ? (
-          <div className="container">
-            <div className="grid">
-              {movies.map((movieReq) => (
-                <MovieBox key={movieReq.id} {...movieReq} />
-              ))}
-            </div>
-          </div>
-        ) : (
-          <h2>Sorry!no movie found</h2>
-        )}
-      </div> */}
 
       <div className="container">
         <div className="grid">

@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ setUserName }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
@@ -15,9 +15,13 @@ export default function Login() {
       .post("http://localhost:3000/login", { email, password })
       .then((result) => {
         console.log(result);
-        if (result.data === "success") {
-          navigate("/");
-          alert("login success");
+        if (result.data.result === "success") {
+          const userName = result.data.name;
+          alert(`login success, welcome, ${userName}`);
+          setUserName(userName);
+          navigate("/mybooks");
+        } else if (result.data === "user not exists") {
+          alert("User not exist, please register");
         } else {
           alert("wrong password");
         }

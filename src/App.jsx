@@ -10,14 +10,16 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import axios from "axios";
+import React, { useState } from "react";
 
 axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = false;
 
 function App() {
+  const [userName, setUserName] = useState("");
   return (
     <div className="App">
-      <Navbar />
+      <Navbar userName={userName} />
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -25,7 +27,10 @@ function App() {
         <Route path="/browse" element={<Browse />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route
+          path="/login"
+          element={<Login setUserName={setUserName} />}
+        ></Route>
       </Routes>
 
       <Footer />

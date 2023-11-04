@@ -17,7 +17,13 @@ function Register() {
     e.preventDefault();
     axios
       .post("http://localhost:3000/register", { name, email, password })
-      .then((result) => console.log(result))
+      .then((result) => {
+        if (result.data === "user exists, please login") {
+          alert(result.data);
+        } else {
+          alert("register success, please login");
+        }
+      })
 
       .catch((err) => console.log(err));
   };

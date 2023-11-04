@@ -3,8 +3,9 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-
+// const dotevn = require("dotenv").config();
 const cors = require("cors");
+
 const UserModel = require("./models/user");
 const ReviewModel = require("./models/Reviews");
 
@@ -23,12 +24,25 @@ mongoose
   .then(() => console.log("database connected"))
   .catch((err) => console.log("database not connected", err));
 
-//POST endpoint
+//POST endpoint register
 app.post("/register", (req, res) => {
-  UserModel.create(req.body)
-    .then((users) => res.json(users))
+  const { name, email, password } = req.body;
+
+  UserModel.findOne({ email: email })
+    .then((user) => {
+      if (user) {
+        if (user.email === email) {
+          res.json("user exists, please login");
+        }
+      } else {
+        UserModel.create({ name, email, password })
+          .then((users) => res.json(users))
+          .catch((err) => res.json(err));
+      }
+    })
     .catch((err) => res.json(err));
 });
+
 //post endpoint to handle login
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
@@ -37,7 +51,7 @@ app.post("/login", (req, res) => {
     .then((user) => {
       if (user) {
         if (user.password === password) {
-          res.json("success");
+          res.json({ result: "success", name: user.name });
         } else {
           res.json("password incorrect");
         }
