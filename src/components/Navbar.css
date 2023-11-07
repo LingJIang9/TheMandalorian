@@ -62,7 +62,6 @@
     top: 105px;
     padding: 20px;
   }
-
   .navbar ul.active {
     display: flex;
     flex-direction: column;
@@ -80,11 +79,10 @@
   }
   .navbar li:hover {
     cursor: pointer;
-    background-color: rgb(119, 191, 255);
+    background-color: rgb(0, 0, 0);
   }
   .navbar a:hover {
     color: rgb(255, 255, 255);
-
     transition: 0.1s ease-in-out;
   }
   .hamburger-icon i {

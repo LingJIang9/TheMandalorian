@@ -4,12 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, FormControl, Button } from "react-bootstrap";
 import "../components/SearchBar.css";
 import "../components/Search.css";
-
+//fetching popular movies
 const API_URL =
   "https://api.themoviedb.org/3/movie/popular?api_key=3d11b45598d7855ede089fb154e694e8&page=1";
+//for searching movies
 const API_SEARCH =
   "https://api.themoviedb.org/3/search/movie?api_key=3d11b45598d7855ede089fb154e694e8&query";
-
+//for fetching genre data
 const API_GENRES =
   "https://api.themoviedb.org/3/genre/movie/list?api_key=3d11b45598d7855ede089fb154e694e8";
 

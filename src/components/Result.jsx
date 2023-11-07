@@ -1,5 +1,4 @@
 import React from "react";
-import "../components/Result.css";
 
 function Result({ result, openDetail }) {
   return (

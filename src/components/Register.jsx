@@ -11,7 +11,6 @@ function Register() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +50,9 @@ function Register() {
           onChange={(e) => setName(e.target.value)}
         ></input>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn btn-dark">
+          Submit
+        </button>
         <p>
           Already a member?
           <Link to="/login">Login here</Link>

@@ -1,5 +1,5 @@
-import "../components/Book.css";
-import Book from "../components/Book";
+import "../components/Movie.css";
+import Movie from "../components/Movie";
 import book1 from "../assets/movie1.png";
 import book2 from "../assets/movie2.png";
 import book3 from "../assets/movie3.png";
@@ -11,7 +11,7 @@ import book14 from "../assets/movie8.png";
 import book15 from "../assets/movie9.png";
 import book16 from "../assets/movie10.png";
 import book17 from "../assets/movie11.png";
-import book18 from "../assets/movie12.png";
+
 const CardData = [
   {
     id: "1",

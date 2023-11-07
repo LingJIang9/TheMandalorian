@@ -1,6 +1,6 @@
-import "../components/Book.css";
+import "../components/Movie.css";
 
-function Book(props) {
+function Movie(props) {
   return (
     <div className="b-card">
       <div className="b-image">
@@ -14,4 +14,4 @@ function Book(props) {
   );
 }
 
-export default Book;
+export default Movie;

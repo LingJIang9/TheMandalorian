@@ -9,19 +9,19 @@ export const NavbarItem = [
     title: "My Watchlist",
     url: "/mywatchlist",
     cName: "nav-links",
-    icon: "fa-solid fa-house-chimney-window",
+    icon: "fa-regular fa-folder",
   },
   {
-    title: "Browse",
+    title: "About",
     url: "/browse",
     cName: "nav-links",
-    icon: "fa-solid fa-house-chimney-window",
+    icon: "fa-solid fa-film",
   },
   {
     title: "Search",
     url: "/search",
     cName: "nav-links",
-    icon: "fa-solid fa-envelope",
+    icon: "fa-solid fa-magnifying-glass",
   },
   {
     title: "Register/Login",

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { Modal } from "react-bootstrap";
-import "../components/MovieBox";
+
 import axios from "axios";
 
 const MovieBox = ({
@@ -15,9 +15,7 @@ const MovieBox = ({
   reviewText,
 }) => {
   const [show, setShow] = useState(false);
-
   const handleShow = () => setShow(true);
-
   const handleClose = () => setShow(false);
 
   const [showReviewModal, setShowReviewModal] = useState(false);
@@ -78,15 +76,15 @@ const MovieBox = ({
           <button
             type="button"
             className="btn btn-dark btn-sm"
-            style={{ margin: "0 auto" }}
+            style={{ margin: "2px" }}
             onClick={handleShow}
           >
-            View movies
+            View movie info
           </button>
           <button
             type="button"
             className="btn btn-dark btn-sm"
-            style={{ margin: "2px auto" }}
+            style={{ margin: "2px" }}
             onClick={handleShowReviewModal}
           >
             Write a review
