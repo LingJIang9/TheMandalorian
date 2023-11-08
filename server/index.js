@@ -5,6 +5,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const dotevn = require("dotenv").config();
 const cors = require("cors");
+
+//hash password
+const { hashPassword } = require("../server/helpers/auth");
 //++
 const jwt = require("jsonwebtoken");
 // const cookieParser = require("cookie-parser");
@@ -53,9 +56,11 @@ mongoose
   .catch((err) => console.log("database not connected", err));
 
 //POST endpoint register
-app.post("/register", (req, res) => {
-  const { name, email, password } = req.body;
+//hash register password
 
+app.post("/register", async (req, res) => {
+  const { name, email, password } = req.body;
+  const hashedPassword = await hashPassword(password);
   UserModel.findOne({ email: email })
     .then((user) => {
       if (user) {
@@ -63,7 +68,7 @@ app.post("/register", (req, res) => {
           res.json("user exists, please login");
         }
       } else {
-        UserModel.create({ name, email, password })
+        UserModel.create({ name, email, password: hashedPassword })
           .then((user) => {
             // Generate a JWT token after successfully creating a user
             const token = jwt.sign({ email, name }, secretKey);
