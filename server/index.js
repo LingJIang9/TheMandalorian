@@ -5,7 +5,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const dotevn = require("dotenv").config();
 const cors = require("cors");
+//++
 const jwt = require("jsonwebtoken");
+// const cookieParser = require("cookie-parser");
+
 const UserModel = require("./models/user");
 const ReviewModel = require("./models/Reviews");
 
@@ -15,6 +18,31 @@ const port = 3000;
 const app = express();
 app.use(express.json());
 app.use(cors());
+// app.use(express.urlendcoded({ extended: false }));
+// app.use("/", require("./routes/authRoutes"));
+//++
+// app.use(cookieParser());
+
+const secretKey = "mubi-movie";
+
+//++
+// Middleware to verify JWT token
+const verifyToken = (req, res, next) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.status(403).json({ message: "Unauthorized" });
+  }
+
+  jwt.verify(token, secretKey, (err, decoded) => {
+    if (err) {
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
+    req.user = decoded;
+    next();
+  });
+};
 
 // mongo database connection
 mongoose
@@ -36,7 +64,16 @@ app.post("/register", (req, res) => {
         }
       } else {
         UserModel.create({ name, email, password })
-          .then((users) => res.json(users))
+          .then((user) => {
+            // Generate a JWT token after successfully creating a user
+            const token = jwt.sign({ email, name }, secretKey);
+            console.log("JWT Token:", token);
+
+            // Set the token in an HTTP-only cookie
+            res.cookie("token", token, { httpOnly: true });
+
+            res.json({ result: "success", name });
+          })
           .catch((err) => res.json(err));
       }
     })
@@ -60,6 +97,11 @@ app.post("/login", (req, res) => {
       }
     })
     .catch((err) => res.json(err));
+  // After successfully logging in, generate a JWT token
+  const token = jwt.sign({ email, name: user.name }, secretKey);
+  res.cookie("token", token, { httpOnly: true });
+
+  res.json({ result: "success", name: user.name });
 });
 
 // post endpoint to update reviews

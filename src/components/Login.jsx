@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-import "./Login.css";
+import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({ setUserName }) {
@@ -31,7 +31,7 @@ export default function Login({ setUserName }) {
 
   return (
     <div>
-      <form className="login" onSubmit={handleSubmit}>
+      <form className="login register" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label>Email</label>
         <input

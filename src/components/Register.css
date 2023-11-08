@@ -1,16 +1,24 @@
-.register {
+.register.login {
   display: flex;
   flex-direction: column;
-
   border: solid 1px grey;
   padding: 20px;
   margin: 30px auto;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 50%;
   line-height: 40px;
 }
 
 .register button {
   margin-top: 10px;
+}
+
+.login button {
+  margin-top: 10px;
+}
+@media screen and (max-width: 600px) {
+  .register {
+    width: 90%; /* Adjust width for mobile screens */
+  }
 }

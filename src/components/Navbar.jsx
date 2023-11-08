@@ -13,7 +13,7 @@ function Navbar({ userName }) {
   return (
     <nav className="navbar">
       <h1>MUBI</h1>
-      <h7>{userName} </h7>
+      <p>{userName} </p>
       <div className="hamburger-icon" onClick={toggleMenu}>
         <i className={clicked ? "fa-solid fa-times" : "fa-solid fa-bars"}></i>
       </div>

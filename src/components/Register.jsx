@@ -3,11 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
-// import { toast } from "react-hot-toast";
-// import { useNavigate } from "react-router-dom";
 
 function Register() {
-  // const navigate = useNavigate();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -29,7 +26,7 @@ function Register() {
 
   return (
     <div>
-      <form className="register" onSubmit={handleSubmit}>
+      <form className="register login" onSubmit={handleSubmit}>
         <h1>Register</h1>
         <label>Email</label>
         <input

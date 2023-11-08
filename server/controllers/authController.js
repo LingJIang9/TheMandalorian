@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-
+// /* eslint-disable no-unused-vars */
+// /* eslint-disable no-undef */
+// const jwt = require("jasonwebtoken");
 // const User = require("../models/user");
 
 // const registerUser = async (req, res) => {
