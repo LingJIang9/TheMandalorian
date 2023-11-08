@@ -4,30 +4,52 @@ import axios from "axios";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setUserName }) {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+// export default function Login() {
+//   const navigate = useNavigate();
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const response = await axios.post("/login", { email, password });
+//       const { profile } = response.data;
+
+//       if (profile.error) {
+//         alert("data error");
+//       } else {
+//         setEmail(profile.email);
+//         setPassword(profile.password);
+//         alert("login success");
+//         navigate("/");
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+export default function Login() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/login", { email, password })
-      .then((result) => {
-        console.log(result);
-        if (result.data.result === "success") {
-          const userName = result.data.name;
-          alert(`login success, welcome, ${userName}`);
-          setUserName(userName);
-        } else if (result.data === "user not exists") {
-          alert("User not exist, please register");
-        } else {
-          alert("wrong password");
-        }
-      })
+    try {
+      const response = await axios.post("/login", { email, password });
+      const { result } = response.data;
 
-      .catch((err) => console.log(err));
+      if (result === "password match") {
+        alert("Login success");
+        navigate("/");
+      } else {
+        alert("Login failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // rest of your component
 
   return (
     <div>

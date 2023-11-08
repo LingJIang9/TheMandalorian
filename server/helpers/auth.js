@@ -20,8 +20,8 @@ const hashPassword = (password) => {
 };
 
 //for login api
-// const comparePassword = (password, hashed) => {
-//   return bcrypt.compare(password, hashed);
-// };
+const comparePassword = (password, hashed) => {
+  return bcrypt.compare(password, hashed);
+};
 
-module.exports = { hashPassword };
+module.exports = { hashPassword, comparePassword };

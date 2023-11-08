@@ -5,9 +5,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const dotevn = require("dotenv").config();
 const cors = require("cors");
-
+const bcrypt = require("bcrypt");
 //hash password
-const { hashPassword } = require("../server/helpers/auth");
+const { hashPassword, comparePassword } = require("../server/helpers/auth");
 //++
 const jwt = require("jsonwebtoken");
 // const cookieParser = require("cookie-parser");
@@ -56,10 +56,10 @@ mongoose
   .catch((err) => console.log("database not connected", err));
 
 //POST endpoint register
-//hash register password
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
+  //hash register password
   const hashedPassword = await hashPassword(password);
   UserModel.findOne({ email: email })
     .then((user) => {
@@ -85,28 +85,29 @@ app.post("/register", async (req, res) => {
     .catch((err) => res.json(err));
 });
 
-//post endpoint to handle login
-app.post("/login", (req, res) => {
+//post endpoint to login
+// POST endpoint to handle login
+
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  UserModel.findOne({ email: email })
-    .then((user) => {
-      if (user) {
-        if (user.password === password) {
-          res.json({ result: "success", name: user.name });
-        } else {
-          res.json("password incorrect");
-        }
-      } else {
-        res.json("user not exists");
-      }
-    })
-    .catch((err) => res.json(err));
-  // After successfully logging in, generate a JWT token
-  const token = jwt.sign({ email, name: user.name }, secretKey);
-  res.cookie("token", token, { httpOnly: true });
+  try {
+    const user = await UserModel.findOne({ email: email });
 
-  res.json({ result: "success", name: user.name });
+    if (!user) {
+      res.json({ result: "user not exists, please register" });
+    } else {
+      const match = await bcrypt.compare(password, user.password);
+
+      if (match) {
+        res.json({ result: "password match" });
+      } else {
+        res.json({ result: "password not match" });
+      }
+    }
+  } catch (err) {
+    res.json(err);
+  }
 });
 
 // post endpoint to update reviews
