@@ -4,29 +4,6 @@ import axios from "axios";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
-// export default function Login() {
-//   const navigate = useNavigate();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post("/login", { email, password });
-//       const { profile } = response.data;
-
-//       if (profile.error) {
-//         alert("data error");
-//       } else {
-//         setEmail(profile.email);
-//         setPassword(profile.password);
-//         alert("login success");
-//         navigate("/");
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -41,15 +18,15 @@ export default function Login() {
       if (result === "password match") {
         alert("Login success");
         navigate("/");
+      } else if (result === "password not match") {
+        alert("password not match");
       } else {
-        alert("Login failed");
+        alert("User not exist, please register");
       }
     } catch (error) {
       console.log(error);
     }
   };
-
-  // rest of your component
 
   return (
     <div>

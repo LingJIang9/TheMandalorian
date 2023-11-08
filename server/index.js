@@ -21,10 +21,6 @@ const port = 3000;
 const app = express();
 app.use(express.json());
 app.use(cors());
-// app.use(express.urlendcoded({ extended: false }));
-// app.use("/", require("./routes/authRoutes"));
-//++
-// app.use(cookieParser());
 
 const secretKey = "mubi-movie";
 
