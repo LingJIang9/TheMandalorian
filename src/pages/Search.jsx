@@ -58,6 +58,7 @@ function Search() {
         setGenres(data.genres);
       });
   }, []);
+
   useEffect(() => {
     const filtered = movies.filter((movie) => {
       return selectedGenre === null || movie.genre_ids.includes(selectedGenre);

@@ -3,14 +3,13 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-// const dotevn = require("dotenv").config();
+
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 //hash password
 const { hashPassword, comparePassword } = require("../server/helpers/auth");
-//++
+
 const jwt = require("jsonwebtoken");
-// const cookieParser = require("cookie-parser");
 
 const UserModel = require("./models/user");
 const ReviewModel = require("./models/Reviews");
@@ -24,7 +23,6 @@ app.use(cors());
 
 const secretKey = "mubi-movie";
 
-//++
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
   const token = req.cookies.token;

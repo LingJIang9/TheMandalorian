@@ -10,15 +10,20 @@ export function AuthProvider(props) {
   const [authUser, setAuthUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    // Check if user data exists in localStorage
-    const storedUser = JSON.parse(localStorage.getItem("authUser"));
+  // useEffect(() => {
+  //   // Check if user data exists in localStorage
 
-    if (storedUser) {
-      setAuthUser(storedUser);
-      setIsLoggedIn(true);
-    }
-  }, []);
+  //   const storedUserString = localStorage.getItem(
+  //     "authUser",
+  //     JSON.stringify(user)
+  //   );
+  //   const storedUser = storedUserString ? JSON.parse(storedUserString) : null;
+
+  //   if (storedUser) {
+  //     setAuthUser(storedUser);
+  //     setIsLoggedIn(true);
+  //   }
+  // }, []);
 
   const logIn = (user) => {
     setAuthUser(user);
