@@ -4,6 +4,7 @@ const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { Modal } from "react-bootstrap";
 
 import axios from "axios";
+import { useAuth } from "./context/AuthContext.jsx";
 
 const MovieBox = ({
   title,
@@ -14,6 +15,7 @@ const MovieBox = ({
   id,
   reviewText,
 }) => {
+  const { isLoggedIn } = useAuth();
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -67,6 +69,15 @@ const MovieBox = ({
         console.error("Error deleting review:", error);
       });
   };
+  // Add watchlist
+
+  const handleAddWatchlist = () => {
+    if (isLoggedIn) {
+      alert("Added to watchlist!");
+    } else {
+      alert("Please log in to add to watchlist.");
+    }
+  };
 
   return (
     <div className="card text-center mb-3 ">
@@ -88,6 +99,14 @@ const MovieBox = ({
             onClick={handleShowReviewModal}
           >
             Write a review
+          </button>
+          <button
+            type="button"
+            className="btn btn-dark btn-sm"
+            style={{ margin: "2px" }}
+            onClick={handleAddWatchlist}
+          >
+            Add to Watchlist
           </button>
 
           <Modal show={show} onHide={handleClose}>
