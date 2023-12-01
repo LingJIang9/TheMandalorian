@@ -7,12 +7,30 @@ import { useAuth } from "./context/AuthContext.jsx";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // set username, new
+  const [userName, setUserName] = useState("");
+
   //login and logout
   const { setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
 
   const logOut = (e) => {
     e.preventDefault(), setIsLoggedIn(false), setAuthUser(null);
   };
+
+  //retrieve username by email provided.new
+  const fetchUsername = async () => {
+    try {
+      const response = await axios.get(`/getUserByEmail?email=${email}`);
+      const user = response.data;
+      if (user) {
+        setUserName(user.name);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -20,10 +38,13 @@ export default function Login() {
       const { result } = response.data;
 
       if (result === "password match") {
-        setIsLoggedIn(true);
-        setAuthUser({ Name: "auth" });
+        //new
+        await fetchUsername();
 
-        localStorage.setItem("authUser", JSON.stringify({ Name: "auth" }));
+        setIsLoggedIn(true);
+        setAuthUser({ Name: userName });
+
+        localStorage.setItem("authUser", JSON.stringify({ Name: userName }));
         alert("Login success");
       } else if (result === "password not match") {
         alert("password not match");
@@ -51,7 +72,10 @@ export default function Login() {
           placeholder="enter your password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <span>User is {isLoggedIn ? "logged in" : "logged out"}</span>
+        <span>
+          User is {isLoggedIn ? `logged in as ${userName}` : "logged out"}
+        </span>
+        {/* <span>User is {isLoggedIn ? "logged in" : "logged out"}</span> */}
 
         {isLoggedIn ? (
           <button

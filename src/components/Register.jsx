@@ -1,6 +1,7 @@
 import "../components/Register.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
@@ -8,6 +9,7 @@ function Register() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ function Register() {
           alert(result.data);
         } else {
           alert("register success, please login");
+          navigate("/login");
         }
       })
 

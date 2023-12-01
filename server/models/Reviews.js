@@ -5,7 +5,10 @@ const { Schema } = mongoose;
 
 const ReviewSchema = new mongoose.Schema({
   reviewText: String,
-  id: String, // You may need to adjust this based on your data structure
+  // movie id
+  id: String,
+  //only user who logged in, can review, so the user's name will be there
+  // name: String,
 });
 //reviews is the name of database collection
 const ReviewModel = mongoose.model("reviews", ReviewSchema);

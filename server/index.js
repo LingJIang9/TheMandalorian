@@ -16,6 +16,9 @@ const ReviewModel = require("./models/Reviews");
 
 const port = 3000;
 
+//router new
+const userRoute = express.Router();
+
 //middleware
 const app = express();
 app.use(express.json());
@@ -79,7 +82,6 @@ app.post("/register", async (req, res) => {
     .catch((err) => res.json(err));
 });
 
-//post endpoint to login
 // POST endpoint to handle login
 
 app.post("/login", async (req, res) => {
@@ -144,4 +146,25 @@ app.delete("/review/:_id", (req, res) => {
     });
 });
 
+//fetch user name endpoint new
+// Define a route to get user name by email new
+app.get("/getUserByEmail", async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    const user = await UserModel.findOne({ email });
+
+    if (user) {
+      res.json({ name: user.name });
+    } else {
+      res.json({ message: "User not found" });
+    }
+  } catch (error) {
+    console.error("Error fetching user by email:", error);
+    res.status(500).json({ error: "Failed to fetch user by email" });
+  }
+});
+
 app.listen(port, () => console.log(`server is running on ${port}`));
+
+module.exports = userRoute;

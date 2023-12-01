@@ -21,7 +21,17 @@ const MovieBox = ({
   const handleClose = () => setShow(false);
 
   const [showReviewModal, setShowReviewModal] = useState(false);
-  const handleShowReviewModal = () => setShowReviewModal(true);
+
+  // only user login can write a review
+  const handleShowReviewModal = () => {
+    if (isLoggedIn) {
+      setShowReviewModal(true);
+    } else {
+      alert("You can register and login to write a review.");
+    }
+  };
+
+  // const handleShowReviewModal = () => setShowReviewModal(true);
 
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
