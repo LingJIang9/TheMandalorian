@@ -14,6 +14,7 @@ const MovieBox = ({
   overview,
   id,
   reviewText,
+  username,
 }) => {
   const { isLoggedIn } = useAuth();
   const [show, setShow] = useState(false);
@@ -35,11 +36,23 @@ const MovieBox = ({
 
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
+  const { authUser } = useAuth();
 
   //review
   const handleReviewSubmit = () => {
+    if (!authUser) {
+      console.error("No user logged in");
+      return;
+    }
+
+    const reviewData = {
+      reviewText: newReview,
+      id: id,
+      username: authUser.username,
+    };
+
     axios
-      .post("/review", { reviewText: newReview, id })
+      .post("/review", reviewData)
       .then((response) => {
         console.log("Review submitted successfully", response.data);
       })
@@ -141,8 +154,7 @@ const MovieBox = ({
               <ul className="list-group list-group-flush">
                 {reviews.map((review) => (
                   <li key={review._id} className="list-group-item ">
-                    {review.reviewText}
-
+                    <strong>{review.username}: </strong> {review.reviewText}
                     <button
                       type="button"
                       onClick={() => handleDeleteReviewModal(review._id)}

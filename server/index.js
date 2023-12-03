@@ -108,8 +108,8 @@ app.post("/login", async (req, res) => {
 
 // post endpoint to update reviews
 app.post("/review", (req, res) => {
-  const { reviewText, id } = req.body;
-  ReviewModel.create({ reviewText, id })
+  const { reviewText, id, username } = req.body;
+  ReviewModel.create({ reviewText, id, username })
     .then((review) => res.json(review))
     .catch((err) => res.json(err));
 });

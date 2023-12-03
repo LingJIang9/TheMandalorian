@@ -75,7 +75,6 @@ export default function Login() {
         <span>
           User is {isLoggedIn ? `logged in as ${userName}` : "logged out"}
         </span>
-        {/* <span>User is {isLoggedIn ? "logged in" : "logged out"}</span> */}
 
         {isLoggedIn ? (
           <button
