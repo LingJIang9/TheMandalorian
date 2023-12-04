@@ -48,7 +48,7 @@ const MovieBox = ({
     const reviewData = {
       reviewText: newReview,
       id: id,
-      username: authUser.username,
+      username: authUser.Name,
     };
 
     axios

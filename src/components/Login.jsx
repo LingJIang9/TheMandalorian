@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./Register.css";
@@ -14,8 +14,23 @@ export default function Login() {
   //login and logout
   const { setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
 
+  // Retrieve user info from local storage when component mounts
+  useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+    if (storedUser) {
+      const userData = JSON.parse(storedUser);
+      setUserName(userData.Name);
+      setIsLoggedIn(true);
+      setAuthUser(userData);
+    }
+  }, [setIsLoggedIn, setAuthUser]);
+
+  //logout
   const logOut = (e) => {
-    e.preventDefault(), setIsLoggedIn(false), setAuthUser(null);
+    e.preventDefault();
+    setIsLoggedIn(false);
+    setAuthUser(null);
+    localStorage.removeItem("authUser");
   };
 
   //retrieve username by email provided.new
