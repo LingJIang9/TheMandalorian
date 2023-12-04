@@ -32,8 +32,6 @@ const MovieBox = ({
     }
   };
 
-  // const handleShowReviewModal = () => setShowReviewModal(true);
-
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
   const { authUser } = useAuth();
@@ -79,19 +77,25 @@ const MovieBox = ({
 
   //delete feature
 
-  const handleDeleteReviewModal = (_id) => {
-    axios
-      .delete(`/review/${_id}`)
-      .then((response) => {
-        console.log("Review deleted successfully", response.data);
+  const handleDeleteReviewModal = (_id, username) => {
+    console.log("Attempting to delete review by:", username);
+    console.log("Current logged in user:", authUser?.Name);
 
-        const updatedReviews = reviews.filter((review) => review._id !== _id);
-        setReviews(updatedReviews);
-      })
-      .catch((error) => {
-        console.error("Error deleting review:", error);
-      });
+    {
+      axios
+        .delete(`/review/${_id}`)
+        .then((response) => {
+          console.log("Review deleted successfully", response.data);
+
+          const updatedReviews = reviews.filter((review) => review._id !== _id);
+          setReviews(updatedReviews);
+        })
+        .catch((error) => {
+          console.error("Error deleting review:", error);
+        });
+    }
   };
+
   // Add watchlist
 
   const handleAddWatchlist = () => {
@@ -155,14 +159,17 @@ const MovieBox = ({
                 {reviews.map((review) => (
                   <li key={review._id} className="list-group-item ">
                     <strong>{review.username}: </strong> {review.reviewText}
-                    <button
-                      type="button"
-                      onClick={() => handleDeleteReviewModal(review._id)}
-                      className="btn btn-secondary btn-sm"
-                      style={{ display: "flex" }}
-                    >
-                      Delete
-                    </button>
+                    {authUser?.Name === review.username && (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleDeleteReviewModal(review._id, review.username)
+                        }
+                        className="btn btn-secondary btn-sm"
+                      >
+                        Delete
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
