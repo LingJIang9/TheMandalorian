@@ -22,6 +22,13 @@ function Navbar({ userName }) {
     setClicked(!clicked);
   };
 
+  //logout
+  const logOut = (e) => {
+    e.preventDefault();
+    setIsLoggedIn(false);
+    setAuthUser(null);
+    localStorage.removeItem("authUser");
+  };
   return (
     <nav className="navbar">
       <h1>MUBI</h1>
@@ -48,7 +55,8 @@ function Navbar({ userName }) {
         })}
         {isLoggedIn && (
           <li>
-            <span>{authUser?.Name}</span>
+            <span style={{ color: "grey" }}>{authUser?.Name}</span>
+            <i className="fa-solid fa-right-from-bracket" onClick={logOut}></i>
           </li>
         )}
       </ul>

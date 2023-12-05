@@ -6,6 +6,10 @@ import { Modal } from "react-bootstrap";
 import axios from "axios";
 import { useAuth } from "./context/AuthContext.jsx";
 
+//toast to show message
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const MovieBox = ({
   title,
   poster_path,
@@ -28,7 +32,7 @@ const MovieBox = ({
     if (isLoggedIn) {
       setShowReviewModal(true);
     } else {
-      alert("You can register and login to write a review.");
+      toast("You can register and login to write a review.");
     }
   };
 
@@ -53,6 +57,7 @@ const MovieBox = ({
       .post("/review", reviewData)
       .then((response) => {
         console.log("Review submitted successfully", response.data);
+        toast("Review submitted successfully");
       })
       .catch((error) => {
         console.error("Error submitting review:", error);
@@ -89,9 +94,11 @@ const MovieBox = ({
 
           const updatedReviews = reviews.filter((review) => review._id !== _id);
           setReviews(updatedReviews);
+          toast("review deleted successfully");
         })
         .catch((error) => {
           console.error("Error deleting review:", error);
+          toast.error("review deleted failed");
         });
     }
   };
@@ -100,9 +107,9 @@ const MovieBox = ({
 
   const handleAddWatchlist = () => {
     if (isLoggedIn) {
-      alert("Added to watchlist!");
+      toast("Added to watchlist!");
     } else {
-      alert("Please log in to add to watchlist.");
+      toast("Please log in to add to watchlist.");
       return;
     }
     const movieData = {
@@ -228,6 +235,11 @@ const MovieBox = ({
           </Modal>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={200}
+        hideProgressBar={true}
+      />
     </div>
   );
 };

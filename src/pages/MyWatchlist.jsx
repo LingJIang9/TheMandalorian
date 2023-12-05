@@ -27,18 +27,30 @@ function MyWatchlist() {
     <>
       <Hero cName="hero" url={HeroMyBooks} />
       <h1>My Watchlist</h1>
-      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          margin: "30px",
+        }}
+      >
         {watchlist.map((movie) => (
           <div
             key={movie._id}
             className="movie-item"
-            style={{ width: "25%", padding: "10px" }}
+            style={{
+              width: "20%",
+              padding: "10px",
+              border: "0.5px solid grey",
+            }}
           >
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               style={{ width: "100%", height: "auto" }}
             ></img>
-            <h5>{movie.title}</h5>
+            <h5 style={{ height: "2.6em" }}>{movie.title}</h5>
+            <button className="btn btn-secondary">Delete</button>
           </div>
         ))}
       </div>
