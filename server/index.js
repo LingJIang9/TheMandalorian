@@ -13,6 +13,7 @@ const jwt = require("jsonwebtoken");
 
 const UserModel = require("./models/user");
 const ReviewModel = require("./models/Reviews");
+const WatchlistModel = require("./models/Watchlist");
 
 const port = 3000;
 
@@ -114,7 +115,7 @@ app.post("/review", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-//define a route to get reviews by id
+//get reviews by id
 app.get("/review/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -162,6 +163,34 @@ app.get("/getUserByEmail", async (req, res) => {
   } catch (error) {
     console.error("Error fetching user by email:", error);
     res.status(500).json({ error: "Failed to fetch user by email" });
+  }
+});
+
+//save movie to watchlist collection
+app.post("/mywatchlist", (req, res) => {
+  const { poster_path, title, id, vote_average, release_date, username } =
+    req.body;
+  WatchlistModel.create({
+    poster_path,
+    title,
+    id,
+    vote_average,
+    release_date,
+    username,
+  })
+    .then((movies) => res.json(movies))
+    .catch((err) => res.json(err));
+});
+
+app.get("/mywatchlist/:username", async (req, res) => {
+  try {
+    const username = req.params.username;
+    const movies = await WatchlistModel.find({ username });
+
+    res.json(movies);
+  } catch (error) {
+    console.error("Error fetching movies by username:", error);
+    res.status(500).json({ error: "Failed to fetch movies by username" });
   }
 });
 

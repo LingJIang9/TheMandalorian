@@ -36,7 +36,7 @@ const MovieBox = ({
   const [newReview, setNewReview] = useState("");
   const { authUser } = useAuth();
 
-  //review
+  //display review
   const handleReviewSubmit = () => {
     if (!authUser) {
       console.error("No user logged in");
@@ -96,14 +96,32 @@ const MovieBox = ({
     }
   };
 
-  // Add watchlist
+  // add movie to the watchlist
 
   const handleAddWatchlist = () => {
     if (isLoggedIn) {
       alert("Added to watchlist!");
     } else {
       alert("Please log in to add to watchlist.");
+      return;
     }
+    const movieData = {
+      poster_path: poster_path,
+      title: title,
+      id: id,
+      vote_average: vote_average,
+      release_date: release_date,
+      username: authUser.Name,
+    };
+
+    axios
+      .post("/mywatchlist", movieData)
+      .then((response) => {
+        console.log("Movie added successfully", response.data);
+      })
+      .catch((error) => {
+        console.error("Error adding movie:", error);
+      });
   };
 
   return (

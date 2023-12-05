@@ -48,7 +48,7 @@ function Navbar({ userName }) {
         })}
         {isLoggedIn && (
           <li>
-            <span>{authUser?.Name}</span> {/* Displaying the user's name */}
+            <span>{authUser?.Name}</span>
           </li>
         )}
       </ul>

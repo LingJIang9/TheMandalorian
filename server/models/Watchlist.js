@@ -3,11 +3,13 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const WatchlistSchema = new mongoose.Schema({
+const WatchlistSchema = new Schema({
+  poster_path: String,
   title: String,
-  reviewText: String,
-  userEmail: String,
   id: String,
+  vote_average: String,
+  release_date: String,
+  username: String,
 });
 //reviews is the name of database collection
 const WatchlistModel = mongoose.model("watchlist", WatchlistSchema);
