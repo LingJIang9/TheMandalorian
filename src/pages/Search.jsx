@@ -34,17 +34,23 @@ function Search() {
 
   const searchMovie = async (e) => {
     e.preventDefault();
-    console.log("searching");
     try {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=3d11b45598d7855ede089fb154e694e8&query=${query}`;
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data);
-      setMovies(data.results);
-    } catch (e) {
-      console.log(e);
+      if (data.results.length === 0) {
+        // No movies found
+        alert("Sorry, no movies found.");
+      } else {
+        // Movies found
+        setMovies(data.results);
+      }
+    } catch (error) {
+      console.error("Error searching movies:", error);
+      alert("Failed to search movies.");
     }
   };
+
   const changeHandler = (e) => {
     setQuery(e.target.value);
   };

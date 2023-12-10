@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -25,7 +26,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const secretKey = "mubi-movie";
+//
+
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "script-src 'self'");
+  next();
+});
+app.use((err, req, res, next) => {
+  res
+    .status(500)
+    .json({ message: "An error occurred, please try again later." });
+});
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
@@ -44,14 +55,18 @@ const verifyToken = (req, res, next) => {
     next();
   });
 };
+// new, security
+// res.cookie("token", token, {
+//   httpOnly: true,
+//   secure: true, // set to true if your application runs over HTTPS
+//   sameSite: "strict",
+// });
 
 // mongo database connection
 mongoose
-  .connect(
-    "mongodb+srv://jiangling9981:xyXA3Uvjpsq4QqpI@cluster0.dcosvtu.mongodb.net/"
-  )
-  .then(() => console.log("database connected"))
-  .catch((err) => console.log("database not connected", err));
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("Database connected"))
+  .catch((err) => console.error("Database not connected", err));
 
 //POST endpoint register
 
