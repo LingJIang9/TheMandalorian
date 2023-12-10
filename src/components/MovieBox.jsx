@@ -51,6 +51,7 @@ const MovieBox = ({
       reviewText: newReview,
       id: id,
       username: authUser.Name,
+      title: title,
     };
 
     axios
@@ -80,7 +81,7 @@ const MovieBox = ({
     fetchReviewsById(id);
   }, [id]);
 
-  //delete feature
+  //delete review
 
   const handleDeleteReviewModal = (_id, username) => {
     console.log("Attempting to delete review by:", username);
@@ -103,31 +104,48 @@ const MovieBox = ({
     }
   };
 
-  // add movie to the watchlist
-
   const handleAddWatchlist = () => {
-    if (isLoggedIn) {
-      toast("Added to watchlist!");
-    } else {
-      toast("Please log in to add to watchlist.");
+    if (!isLoggedIn) {
+      toast.error("Please log in to add to watchlist.");
       return;
     }
-    const movieData = {
-      poster_path: poster_path,
-      title: title,
-      id: id,
-      vote_average: vote_average,
-      release_date: release_date,
-      username: authUser.Name,
-    };
 
     axios
-      .post("/mywatchlist", movieData)
+      .get(`/mywatchlist/${authUser.Name}`) // Fetch the current watchlist
       .then((response) => {
-        console.log("Movie added successfully", response.data);
+        const watchlist = response.data;
+
+        // Check if the movie is already in the watchlist
+        const isMovieInWatchlist = watchlist.some((movie) => movie.id === id);
+
+        if (isMovieInWatchlist) {
+          toast.error("You cannot add it, it is already in your watchlist.");
+        } else {
+          // Movie data to add
+          const movieData = {
+            poster_path: poster_path,
+            title: title,
+            id: id,
+            vote_average: vote_average,
+            release_date: release_date,
+            username: authUser.Name,
+          };
+
+          // Add the movie to watchlist
+          axios
+            .post("/mywatchlist", movieData)
+            .then((response) => {
+              console.log("Movie added successfully", response.data);
+              toast.success("Added to watchlist!");
+            })
+            .catch((error) => {
+              console.error("Error adding movie:", error);
+              toast.error("Error adding movie to watchlist.");
+            });
+        }
       })
       .catch((error) => {
-        console.error("Error adding movie:", error);
+        console.error("Error fetching watchlist:", error);
       });
   };
 

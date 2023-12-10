@@ -12,8 +12,8 @@ export const NavbarItem = [
     icon: "fa-regular fa-folder",
   },
   {
-    title: "About",
-    url: "/browse",
+    title: "My Reviewlist",
+    url: "/myreviewlist",
     cName: "nav-links",
     icon: "fa-solid fa-film",
   },

@@ -107,10 +107,10 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// post endpoint to update reviews
+// post endpoint to create reviews
 app.post("/review", (req, res) => {
-  const { reviewText, id, username } = req.body;
-  ReviewModel.create({ reviewText, id, username })
+  const { reviewText, id, username, title } = req.body;
+  ReviewModel.create({ reviewText, id, username, title })
     .then((review) => res.json(review))
     .catch((err) => res.json(err));
 });
@@ -121,7 +121,7 @@ app.get("/review/:id", async (req, res) => {
     const id = req.params.id;
 
     // Use Mongoose to find reviews by the specified id
-    const reviews = await ReviewModel.find({ id }); // Replace 'Review' with your actual Mongoose model
+    const reviews = await ReviewModel.find({ id });
 
     res.json(reviews);
   } catch (error) {
@@ -130,7 +130,7 @@ app.get("/review/:id", async (req, res) => {
   }
 });
 
-//define a route to delete reviews by _id
+//delete reviews by _id
 app.delete("/review/:_id", (req, res) => {
   const reviewId = req.params._id;
 
@@ -192,6 +192,58 @@ app.get("/mywatchlist/:username", async (req, res) => {
     console.error("Error fetching movies by username:", error);
     res.status(500).json({ error: "Failed to fetch movies by username" });
   }
+});
+
+//delete movie by fetching movie id and username
+app.delete("/mywatchlist/:id/:username", (req, res) => {
+  const id = req.params.id;
+  const username = req.params.username;
+
+  WatchlistModel.findOneAndDelete({ id, username })
+    .then((movie) => {
+      if (!movie) {
+        return res.status(404).json({ message: "Movie not found" });
+      }
+      res.json({ message: "Movie deleted successfully" });
+    })
+    .catch((error) => {
+      console.error("Error deleting movie:", error);
+      res.status(500).json({ message: "Error deleting movie" });
+    });
+});
+
+//get reviews by username
+app.get("/myreviewlist/:username", async (req, res) => {
+  try {
+    const username = req.params.username;
+    console.log("Requested reviews for username:", username); // Debugging line
+
+    // Use Mongoose to find reviews by the specified id
+    const reviews = await ReviewModel.find({ username });
+    res.json(reviews);
+    console.log("Retrieved reviews:", reviews); // Debugging line
+  } catch (error) {
+    console.error("Error fetching reviews by usernmae:", error);
+    res.status(500).json({ error: "Failed to fetch reviews by usernmae" });
+  }
+});
+
+//delete review by fetching review_id and username
+app.delete("/myreviewlist/:_id/:username", (req, res) => {
+  const _id = req.params._id;
+  const username = req.params.username;
+
+  ReviewModel.findOneAndDelete({ _id, username })
+    .then((review) => {
+      if (!review) {
+        return res.status(404).json({ message: "review not found" });
+      }
+      res.json({ message: "review deleted successfully" });
+    })
+    .catch((error) => {
+      console.error("Error deleting review:", error);
+      res.status(500).json({ message: "Error deleting review" });
+    });
 });
 
 app.listen(port, () => console.log(`server is running on ${port}`));

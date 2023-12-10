@@ -37,12 +37,10 @@ export default function Login() {
   const fetchUsername = async () => {
     try {
       const response = await axios.get(`/getUserByEmail?email=${email}`);
-      const user = response.data;
-      if (user) {
-        setUserName(user.name);
-      }
+      return response.data; // Return the user data
     } catch (error) {
       console.log(error);
+      return null;
     }
   };
 
@@ -54,12 +52,15 @@ export default function Login() {
 
       if (result === "password match") {
         //new
-        await fetchUsername();
+        const fetchedUser = await fetchUsername(); // fetchUsername needs to return the user
 
         setIsLoggedIn(true);
-        setAuthUser({ Name: userName });
+        setAuthUser({ Name: fetchedUser.name });
 
-        localStorage.setItem("authUser", JSON.stringify({ Name: userName }));
+        localStorage.setItem(
+          "authUser",
+          JSON.stringify({ Name: fetchedUser.name })
+        );
         alert("Login success");
       } else if (result === "password not match") {
         alert("password not match");
@@ -87,9 +88,10 @@ export default function Login() {
           placeholder="enter your password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <span>
+
+        {/* <span>
           User is {isLoggedIn ? `logged in as ${userName}` : "logged out"}
-        </span>
+        </span> */}
 
         {isLoggedIn ? (
           <button

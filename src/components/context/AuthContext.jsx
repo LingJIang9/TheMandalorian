@@ -10,19 +10,27 @@ export function AuthProvider(props) {
   const [authUser, setAuthUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // Initialize the auth state based on localStorage
+  useEffect(() => {
+    const storedUser = localStorage.getItem("authUser");
+    console.log("Stored User:", storedUser); // Debugging line
+    if (storedUser) {
+      const userData = JSON.parse(storedUser);
+      console.log("Parsed User Data:", userData); // Debugging lines
+      setAuthUser(userData);
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   const logIn = (user) => {
     setAuthUser(user);
     setIsLoggedIn(true);
-
-    // Store user data in localStorage
     localStorage.setItem("authUser", JSON.stringify(user));
   };
 
   const logOut = () => {
     setIsLoggedIn(false);
     setAuthUser(null);
-
-    // Remove user data from localStorage
     localStorage.removeItem("authUser");
   };
 

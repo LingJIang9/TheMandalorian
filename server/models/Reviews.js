@@ -7,6 +7,7 @@ const ReviewSchema = new mongoose.Schema({
   reviewText: String,
   id: String,
   username: String,
+  title: String,
 });
 //reviews is the name of database collection
 const ReviewModel = mongoose.model("reviews", ReviewSchema);
